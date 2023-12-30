@@ -38,10 +38,10 @@ fi
 
 if [ "$(id -u)" == "0" ]; then
     echo -e "\n${yellowColour}[*]${endColour}${grayColour} Installing ${endColour}${blueColour} Brave Browser... ${endColour}"
-    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave4u7jddbv7cyviptqjc7jusxh72uik7zt6adtckl5f4nwy2v72qd.onion/brave-browser-archive-keyring.gpg > /dev/null 2>&1
+    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg > /dev/null 2>&1
 
     if [[ "$(echo $?)" == "0" ]]; then
-        echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave4u7jddbv7cyviptqjc7jusxh72uik7zt6adtckl5f4nwy2v72qd.onion/ stable main"| tee /etc/apt/sources.list.d/brave-browser-release.list
+        echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"| tee /etc/apt/sources.list.d/brave-browser-release.list
         
         apt update > /dev/null 2>&1
         apt install -y brave-browser > /dev/null 2>&1
