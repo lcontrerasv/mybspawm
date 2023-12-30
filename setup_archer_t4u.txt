@@ -1,5 +1,0 @@
-# Activate TP-Link Wireless adapter Archer T4U
-
-apt install -y realtek-rtl88xxau-dkms
-
-modprobe -a 88XXau
