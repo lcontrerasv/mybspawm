@@ -13,7 +13,7 @@ You need a Linux based operating system and a user with a zsh shell configured.
 First, install the following necessary tools and libraries:
 
 ```sh
-sudo apt install -y build-essential cmake cmake-data pkg-config git vim kitty python3-sphinx python3-xcbgen xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev libxinerama1 libxinerama-dev libcairo2-dev libxcb1-dev libxcb-composite0-dev xcb-proto libxcb-image0-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libuv1-dev libnl-genl-3-dev meson libxext-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-present-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre3 libpcre3-dev libevdev-dev uthash-dev libx11-xcb-dev libxcb-glx0-dev libev-dev rofi feh imagemagick shred scrub
+sudo apt install -y build-essential cmake cmake-data pkg-config git vim kitty bat lsd python3-sphinx python3-xcbgen xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev libxinerama1 libxinerama-dev libcairo2-dev libxcb1-dev libxcb-composite0-dev xcb-proto libxcb-image0-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libuv1-dev libnl-genl-3-dev meson libxext-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-present-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre3 libpcre3-dev libevdev-dev uthash-dev libx11-xcb-dev libxcb-glx0-dev libev-dev rofi feh imagemagick shred scrub
 ```
 
 Note: if you get a error for xcb, don't worry and just remove from the previous line and run the command again.
@@ -101,10 +101,20 @@ mkdir ~/.config/picom
 cp ./examples/picom.conf ~/.config/picom/
 ```
 
-## Restart
+#### Install powerLevel10k
 
 ```sh
-kill -9 -1
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+```
+
+Note: You could install it for the privileged user.
+
+#### Install FZF
+
+```sh
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 ```
 
 ## Extras
