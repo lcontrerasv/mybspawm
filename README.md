@@ -13,7 +13,7 @@ You need a Linux based operating system and a user with a zsh shell configured.
 First, install the following necessary tools and libraries:
 
 ```sh
-sudo apt install -y build-essential cmake cmake-data pkg-config git vim kitty bat lsd python3-sphinx python3-xcbgen xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev libxinerama1 libxinerama-dev libcairo2-dev libxcb1-dev libxcb-composite0-dev xcb-proto libxcb-image0-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libuv1-dev libnl-genl-3-dev meson libxext-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-present-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre3 libpcre3-dev libevdev-dev uthash-dev libx11-xcb-dev libxcb-glx0-dev libev-dev rofi feh imagemagick shred scrub
+sudo apt install -y build-essential cmake cmake-data pkg-config git vim kitty bat lsd flameshot i3lock python3-sphinx python3-xcbgen xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev libxinerama1 libxinerama-dev libcairo2-dev libxcb1-dev libxcb-composite0-dev xcb-proto libxcb-image0-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libuv1-dev libnl-genl-3-dev meson libxext-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-present-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre3 libpcre3-dev libevdev-dev uthash-dev libx11-xcb-dev libxcb-glx0-dev libev-dev rofi feh imagemagick shred scrub
 ```
 
 Note: if you get a error for xcb, don't worry and just remove from the previous line and run the command again.
@@ -79,6 +79,8 @@ sudo cp polybar/fonts/* /usr/share/fonts/truetype/
 mkdir ~/.config/polybar
 cp -r polybar/* ~/.config/polybar
 fc-cache -v
+mkdir -p ~/.config/rofi/themes
+cp nord.rasi ~/.config/rofi/themes
 ```
 
 #### Install Picom
@@ -127,6 +129,40 @@ wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zi
 sudo unzip Hack.zip -d /usr/local/share/fonts
 rm -rf Hack.zip
 ```
+
+#### ZSH Plugin
+
+Copy all the plugin in ´plugins´folder into ´/usr/share/´
+
+```sh
+sudo cp -r ./plugins/* /usr/share/
+```
+
+Then edit ~/.zshrc, and add the following lines:
+
+```sh
+source /usr/share/zsh-sudo/sudo.plugin.zsh
+source /usr/share/zsh-git/git.plugin.zsh
+```
+
+#### NeoVIM
+
+```sh
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+cd /opt
+sudo wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz
+sudo tar -xf nvim-linux64.tar.gz
+```
+
+#### i3Lock Facy
+
+```sh
+git clone https://github.com/meskarune/i3lock-fancy.git
+cd i3lock-fancy/
+sudo make install
+```
+
+Remenber add the custom alias for nvim.
 
 [//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
 [git-repo-url]: https://github.com/lcontrerasv/mybspwm.git
