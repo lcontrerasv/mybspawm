@@ -42,7 +42,12 @@ if [ "$(id -u)" == "0" ]; then
 
     if [[ "$(echo $?)" == "0" ]]; then
         sudo modprobe -a 88XXau > /dev/null 2>&1
-        echo -e "\n${greenColour}[*]${endColour} Driver installed success!"
+
+        if [[ "$(echo $?)" == "0" ]]; then
+          echo -e "\n${greenColour}[*]${endColour} Driver installed success!"
+        else
+          echo -e "\n${redColour}[!]${endColour} Error loading driver!"
+        fi
     else
         echo -e "\n${redColour}[!]${endColour} Error installing driver!"
     fi
